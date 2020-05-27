@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "data-password",
+      "type": "java.lang.String",
+      "description": "Description for data-password."
+    },
+    {
+      "name": "elasticsearch.ip",
+      "type": "java.lang.String",
+      "description": "Description for elasticsearch.ip."
+    }
+  ] }
