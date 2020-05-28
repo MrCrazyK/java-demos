@@ -129,6 +129,12 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <!--springBoot的aop-->
+        <!--mongodb-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <!--mongodb-->
     </dependencies>
 
     <build>
