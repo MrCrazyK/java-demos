@@ -30,7 +30,6 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.PrefixQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.aggregations.Aggregation;
@@ -70,9 +69,9 @@ import java.util.concurrent.TimeUnit;
 public class EsController {
 
     @Resource
-    private RestHighLevelClient restHighLevelClient;
-    @Resource
     EsUtil esUtil;
+    @Resource
+    private RestHighLevelClient restHighLevelClient;
 
     @ApiOperation(value = "es测试创建索引接口", notes = "es测试创建索引接口")
     @RequestMapping(value = "/create/index", method = RequestMethod.POST)
@@ -235,7 +234,7 @@ public class EsController {
     @ApiOperation(value = "es测试更新接口", notes = "es测试更新接口")
     @RequestMapping(value = "/update/data", method = RequestMethod.GET)
     public ResponseBean testESUpdate(@RequestParam String id, @RequestParam Double money) {
-        UpdateRequest updateRequest = new UpdateRequest("test_es", "String",id);
+        UpdateRequest updateRequest = new UpdateRequest("test_es", "String", id);
         Map<String, Object> map = new HashMap<>();
         map.put("money", money);
         updateRequest.doc(map);

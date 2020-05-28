@@ -27,6 +27,7 @@ public class EsUtil {
 
     @Resource
     RestHighLevelClient restHighLevelClient;
+
     /**
      * 创建索引
      *
@@ -72,7 +73,7 @@ public class EsUtil {
         try {
             GetIndexRequest getIndexRequest = new GetIndexRequest(indexName);
             getIndexRequest.humanReadable(true);
-            exists = restHighLevelClient.indices().exists(getIndexRequest,RequestOptions.DEFAULT);
+            exists = restHighLevelClient.indices().exists(getIndexRequest, RequestOptions.DEFAULT);
         } catch (IOException e) {
             e.printStackTrace();
         }

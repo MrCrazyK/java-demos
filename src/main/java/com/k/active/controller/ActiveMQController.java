@@ -23,14 +23,14 @@ public class ActiveMQController {
 
     @RequestMapping("hi")
     @ResponseBody
-    public String sayHi(){
+    public String sayHi() {
         return "hello";
     }
 
 
     @RequestMapping("send")
     @ResponseBody
-    public String sendMq(String message){
+    public String sendMq(String message) {
         providerService.send(message);
         return "success";
     }
@@ -38,7 +38,7 @@ public class ActiveMQController {
 
     @RequestMapping("get")
     @ResponseBody
-    public String getMq(){
+    public String getMq() {
         return consumerService.getMessage();
     }
 }
