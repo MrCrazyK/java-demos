@@ -202,9 +202,10 @@ public class EsController {
     @ApiOperation(value = "es测试聚合查询接口", notes = "es测试聚合查询接口")
     @RequestMapping(value = "/query/agg", method = RequestMethod.GET)
     public ResponseBean testESFindAgg() {
+        //要查那个表
         SearchRequest searchRequest = new SearchRequest("test_es");
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
-
+        //select age, count(*) as by_age from test_es group by age;
         TermsAggregationBuilder termsAggregationBuilder = AggregationBuilders.terms("by_age").field("age");
         sourceBuilder.aggregation(termsAggregationBuilder);
 
