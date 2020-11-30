@@ -53,7 +53,8 @@ public class HttpsUtil {
         }
         SSLSocketFactory ssf = ctx.getSocketFactory();
 
-        URL url = new URL(uri);
+//        URL url = new URL(uri);
+        URL url = new URL(null, uri, new sun.net.www.protocol.https.Handler());
         HttpsURLConnection httpsConn = (HttpsURLConnection) url.openConnection();
         httpsConn.setSSLSocketFactory(ssf);
         httpsConn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
@@ -114,7 +115,7 @@ public class HttpsUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String uri = "https://www.baidu.com";
+        String uri = "https://sso.lnzwfw.gov.cn/ids/service?idsServiceType=httpssoservice&serviceName=findUserBySSOID&coAppName=dlsrmzf&ssoSessionId=190770F6D65CB7B57C00D9D58B4705E0-192.168.1.64&coSessionId=DFC907974A3ED618626C59AE748E3560&type=json";
         byte[] bytes = HttpsUtil.doPost(uri, "");
         System.out.println(new String(bytes));
         bytes = HttpsUtil.doGet(uri);
